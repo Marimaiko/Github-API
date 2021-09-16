@@ -6,7 +6,7 @@
           <h1>Pesquise os repositórios de alguém do Github</h1>
           <v-form class="mt-10">
             <v-text-field
-              v-model="user"
+              :v-model="user"
               label="Insira o nome de um USUÁRIO"
               required
             >
@@ -44,6 +44,7 @@ export default{
       .get(`https://api.github.com/users/${this.user}/repos`)
       .then((res) => {
         this.repos = res.data;
+        console.log(this.user)
       })
       .catch((err) => console.log(err));
   },
